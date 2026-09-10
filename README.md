@@ -2,6 +2,8 @@
 
 > An intentional, design-forward shopping experience for acoustic hardware, minimalist desk objects, and tactile lifestyle artifacts.
 
+**🌐 Live Site**: [https://guhan-art.github.io/E-Commerce/](https://guhan-art.github.io/E-Commerce/)
+
 ![AURA Studio Preview](https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1400&q=80)
 
 ---
