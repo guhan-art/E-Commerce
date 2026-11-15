@@ -42,7 +42,7 @@ export const Home: React.FC = () => {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-violet-100 via-pink-100 to-amber-100 border border-violet-200 text-xs font-black text-violet-800 shadow-sm mb-6"
           >
             <Sparkles className="w-4 h-4 text-pink-500" />
-            <span>FULL-STACK WEB DEVELOPMENT // CHROMALUX COLLECTION</span>
+            <span>CHROMALUX COLLECTION</span>
           </motion.div>
 
           {/* Bold Colorful Headline */}

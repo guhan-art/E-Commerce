@@ -1,7 +1,7 @@
 {
   "name": "chromalux-server",
   "version": "1.0.0",
-  "description": "RESTful API backend for Chromalux FSWD E-Commerce Platform",
+  "description": "RESTful API backend for Chromalux E-Commerce Platform",
   "main": "dist/server.js",
   "scripts": {
     "build": "tsc",

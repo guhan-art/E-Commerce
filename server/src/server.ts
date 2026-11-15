@@ -25,7 +25,7 @@ app.get('/api/health', (_req: Request, res: Response) => {
   res.json({
     status: 'online',
     timestamp: new Date().toISOString(),
-    service: 'CHROMALUX Studio FSWD API Gateway',
+    service: 'CHROMALUX Studio API Gateway',
     version: '2.0.0',
   });
 });
@@ -44,7 +44,7 @@ app.use(errorHandler);
 // Only listen if executed directly
 if (process.env.NODE_ENV !== 'test') {
   app.listen(PORT, () => {
-    console.log(`⚡ CHROMALUX FSWD Server running on http://localhost:${PORT}`);
+    console.log(`⚡ CHROMALUX Server running on http://localhost:${PORT}`);
     console.log(`📋 Health check available at http://localhost:${PORT}/api/health`);
   });
 }

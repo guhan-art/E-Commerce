@@ -63,7 +63,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
                 CHROMALUX
               </span>
               <span className="text-[9px] tracking-widest text-violet-600 font-extrabold uppercase -mt-0.5">
-                FSWD Studio
+                Colorful Commerce
               </span>
             </div>
           </Link>

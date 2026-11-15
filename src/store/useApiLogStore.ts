@@ -30,7 +30,7 @@ export const useApiLogStore = create<ApiLogState>((set, get) => ({
       endpoint: '/api/health',
       status: 200,
       durationMs: 14,
-      responseBody: { status: 'online', service: 'CHROMALUX FSWD Gateway', uptime: '99.98%' },
+      responseBody: { status: 'online', service: 'CHROMALUX API Gateway', uptime: '99.98%' },
     },
     {
       id: 'init-2',

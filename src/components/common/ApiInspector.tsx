@@ -40,7 +40,7 @@ export const ApiInspector: React.FC = () => {
     let status = 200;
 
     if (testEndpoint === '/api/health') {
-      resBody = { status: 'online', service: 'CHROMALUX FSWD API Gateway', uptime: '99.98%', environment: 'production' };
+      resBody = { status: 'online', service: 'CHROMALUX API Gateway', uptime: '99.98%', environment: 'production' };
     } else if (testEndpoint === '/api/products') {
       resBody = { success: true, count: 6, message: 'Retrieved 6 products from database' };
     } else if (testEndpoint === '/api/coupons/validate') {
@@ -77,12 +77,12 @@ export const ApiInspector: React.FC = () => {
 
   return (
     <>
-      {/* Floating FSWD Badge in bottom-left */}
+      {/* Floating API badge in bottom-left */}
       <div className="fixed bottom-5 left-5 z-40">
         <button
           onClick={() => setIsOpen(true)}
           className="group flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white/95 border-2 border-violet-500/40 text-violet-900 shadow-xl shadow-violet-500/15 backdrop-blur-md hover:scale-105 hover:border-violet-600 transition-all font-sans"
-          title="Open Full-Stack API Gateway Console"
+          title="Open API Gateway Console"
         >
           <span className="relative flex h-3 w-3">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
@@ -90,7 +90,7 @@ export const ApiInspector: React.FC = () => {
           </span>
           <div className="text-left">
             <div className="flex items-center gap-1.5 text-xs font-black tracking-wide bg-gradient-to-r from-violet-600 via-pink-600 to-amber-500 bg-clip-text text-transparent">
-              <span>FSWD REST API</span>
+              <span>REST API</span>
               <span className="px-1.5 py-0.2 rounded text-[10px] font-bold bg-violet-100 text-violet-700">
                 v2.0
               </span>
@@ -282,7 +282,7 @@ export const ApiInspector: React.FC = () => {
           {activeTab === 'tester' && (
             <div className="space-y-4">
               <p className="text-xs text-slate-600">
-                Execute REST API calls directly against the FSWD backend service.
+                Execute REST API calls directly against the backend service.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -404,7 +404,7 @@ export const ApiInspector: React.FC = () => {
               </div>
 
               <div className="p-4 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 leading-relaxed">
-                <strong>FSWD Implementation Note:</strong> The backend codebase is located in the dedicated <code className="bg-white px-1.5 py-0.5 rounded font-mono text-violet-700">/server</code> directory with full TypeScript compilation. When running on GitHub Pages, the client uses an intelligent adapter mirror with identical RESTful payload structures so the recruiter can test every feature live in production without external hosting downtime!
+                <strong>Implementation Note:</strong> The backend codebase is located in the dedicated <code className="bg-white px-1.5 py-0.5 rounded font-mono text-violet-700">/server</code> directory with full TypeScript compilation. When running on GitHub Pages, the client uses an intelligent adapter mirror with identical RESTful payload structures so every feature can be tested live in production without external hosting downtime!
               </div>
             </div>
           )}
