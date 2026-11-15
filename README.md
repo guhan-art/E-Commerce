@@ -1,38 +1,3 @@
-# 🌈 CHROMALUX Studio — Full Stack E-Commerce Web Application
-
-> **A high-energy, vibrant full-stack commerce experience designed with chromatic color styling, responsive architecture, and interactive developer telemetry.**
-
----
-
-### 🌐 Live Production URL
-👉 **[https://guhan-art.github.io/E-Commerce/](https://guhan-art.github.io/E-Commerce/)**
-
-### 📦 GitHub Repository
-👉 **[https://github.com/guhan-art/E-Commerce](https://github.com/guhan-art/E-Commerce)**
-
----
-
-## 📌 Repository "About" Section Configuration
-To update the repository's About section on GitHub:
-1. Go to **[https://github.com/guhan-art/E-Commerce](https://github.com/guhan-art/E-Commerce)**
-2. Click the gear icon ⚙️ next to **About** on the top right
-3. Paste the following:
-   - **Description**: `🌈 CHROMALUX Studio — High-energy, colorful Full-Stack Web Development (FSWD) e-commerce application with React 18, TypeScript, Express REST API, and live developer telemetry.`
-   - **Website**: `https://guhan-art.github.io/E-Commerce/`
-   - **Topics**: `full-stack`, `ecommerce`, `react`, `typescript`, `express`, `tailwind-css`, `rest-api`, `fswd`, `chromatic-design`
-4. Click **Save changes**.
-
----
-
-## 🎨 Creative & Aesthetic Direction
-
-Unlike conventional dark or muted templates, **CHROMALUX Studio** is crafted around an intentional **bright, chromatic visual language**:
-- **Palette**: Electric Violet (`#7C3AED`), Sunset Pink (`#EC4899`), Radiant Sunburst Amber (`#F59E0B`), and Electric Aqua (`#06B6D4`).
-- **Craftsmanship**: Multi-stop gradient typography, frosted glass blur headers, holographic badges, chromatic shadows, and fluid micro-interactions.
-- **Originality**: Engineered by hand without cookie-cutter UI kits to demonstrate senior front-end and full-stack design capabilities.
-
----
-
 ## 🏗️ Full-Stack Architecture (FSWD)
 
 ```mermaid
