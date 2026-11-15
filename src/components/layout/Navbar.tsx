@@ -48,22 +48,22 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
   ];
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white/85 dark:bg-zinc-950/85 backdrop-blur-md border-b border-zinc-200/80 dark:border-zinc-800/80 transition-colors">
+    <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm shadow-violet-500/5 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Brand Logo */}
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-600 via-emerald-500 to-teal-400 p-0.5 shadow-md group-hover:scale-105 transition-transform">
-              <div className="w-full h-full bg-zinc-950 rounded-[10px] flex items-center justify-center text-white">
-                <Sparkles className="w-5 h-5 text-emerald-400" />
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-violet-600 via-pink-500 to-amber-400 p-0.5 shadow-md shadow-pink-500/20 group-hover:scale-105 transition-transform">
+              <div className="w-full h-full bg-white rounded-[14px] flex items-center justify-center text-violet-600">
+                <Sparkles className="w-5 h-5 text-pink-500" />
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="font-extrabold text-xl tracking-tight text-zinc-900 dark:text-zinc-100 font-display">
-                AURA<span className="text-emerald-500">.</span>
+              <span className="font-black text-xl tracking-tight bg-gradient-to-r from-violet-700 via-pink-600 to-amber-500 bg-clip-text text-transparent font-display">
+                CHROMALUX
               </span>
-              <span className="text-[9px] tracking-widest text-zinc-400 font-semibold uppercase -mt-1">
-                Studio
+              <span className="text-[9px] tracking-widest text-violet-600 font-extrabold uppercase -mt-0.5">
+                FSWD Studio
               </span>
             </div>
           </Link>
@@ -76,10 +76,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
                 <Link
                   key={link.label}
                   to={link.path}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${
                     isActive
-                      ? 'text-emerald-600 dark:text-emerald-400 bg-emerald-50/50 dark:bg-emerald-950/30'
-                      : 'text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-900'
+                      ? 'text-white bg-gradient-to-r from-violet-600 to-indigo-600 shadow-md shadow-violet-500/20'
+                      : 'text-slate-700 hover:text-violet-600 hover:bg-violet-50/80'
                   }`}
                 >
                   {link.label}
@@ -89,44 +89,30 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
           </nav>
 
           {/* Action Icons */}
-          <div className="flex items-center gap-1.5 sm:gap-2">
+          <div className="flex items-center gap-2">
             {/* Search Trigger */}
             <button
               onClick={onOpenSearch || (() => navigate('/shop'))}
-              className="p-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-900 rounded-xl transition-colors flex items-center gap-2"
+              className="p-2 text-slate-600 hover:text-violet-600 hover:bg-violet-50 rounded-xl transition-colors flex items-center gap-2 border border-slate-200/80"
               title="Search products"
               aria-label="Search products"
             >
-              <Search className="w-5 h-5" />
-              <span className="hidden lg:inline-flex text-xs text-zinc-400 border border-zinc-200 dark:border-zinc-800 rounded px-1.5 py-0.5">
+              <Search className="w-4 h-4 text-violet-500" />
+              <span className="hidden lg:inline-flex text-[11px] text-slate-400 font-semibold px-1 py-0.5 bg-slate-100 rounded">
                 /
               </span>
-            </button>
-
-            {/* Dark/Light Mode Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="p-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-900 rounded-xl transition-colors"
-              title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? (
-                <Sun className="w-5 h-5 text-amber-400 hover:rotate-45 transition-transform" />
-              ) : (
-                <Moon className="w-5 h-5 text-zinc-700 hover:-rotate-12 transition-transform" />
-              )}
             </button>
 
             {/* Compare Drawer Trigger (Bonus) */}
             {compareCount > 0 && (
               <button
                 onClick={() => setCompareOpen(true)}
-                className="relative p-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-900 rounded-xl transition-colors hidden sm:flex"
+                className="relative p-2 text-slate-600 hover:text-cyan-600 hover:bg-cyan-50 rounded-xl transition-colors hidden sm:flex border border-slate-200/80"
                 title="Compare items"
                 aria-label="Compare items"
               >
-                <Layers className="w-5 h-5 text-emerald-500" />
-                <span className="absolute top-1.5 right-1.5 w-4 h-4 bg-emerald-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center ring-2 ring-white dark:ring-zinc-950">
+                <Layers className="w-4 h-4 text-cyan-600" />
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-cyan-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center ring-2 ring-white">
                   {compareCount}
                 </span>
               </button>
@@ -135,13 +121,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
             {/* Wishlist Icon */}
             <Link
               to="/wishlist"
-              className="relative p-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-900 rounded-xl transition-colors"
+              className="relative p-2 text-slate-600 hover:text-pink-600 hover:bg-pink-50 rounded-xl transition-colors border border-slate-200/80"
               title="View Wishlist"
               aria-label="Wishlist"
             >
-              <Heart className="w-5 h-5" />
+              <Heart className="w-4 h-4 text-pink-500" />
               {wishlistCount > 0 && (
-                <span className="absolute top-1.5 right-1.5 w-4 h-4 bg-rose-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center ring-2 ring-white dark:ring-zinc-950 animate-scale">
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-rose-500 to-pink-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center ring-2 ring-white animate-scale">
                   {wishlistCount}
                 </span>
               )}
@@ -150,13 +136,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
             {/* Cart Button */}
             <button
               onClick={() => setIsCartOpen(true)}
-              className="relative p-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-900 rounded-xl transition-colors flex items-center gap-1.5 group"
+              className="relative p-2 text-slate-600 hover:text-violet-600 hover:bg-violet-50 rounded-xl transition-colors flex items-center gap-1.5 group border border-slate-200/80"
               title="Shopping Cart"
               aria-label="Shopping Cart"
             >
-              <ShoppingBag className="w-5 h-5 group-hover:scale-105 transition-transform" />
+              <ShoppingBag className="w-4 h-4 text-violet-600 group-hover:scale-105 transition-transform" />
               {cartCount > 0 && (
-                <span className="absolute top-1.5 right-1.5 w-4 h-4 bg-emerald-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center ring-2 ring-white dark:ring-zinc-950">
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-violet-600 via-pink-600 to-amber-500 text-white text-[10px] font-extrabold rounded-full flex items-center justify-center ring-2 ring-white shadow-sm">
                   {cartCount}
                 </span>
               )}
@@ -165,7 +151,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
             {/* User Profile / Auth Modal */}
             <button
               onClick={() => setIsAuthModalOpen(true)}
-              className="p-1.5 rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors flex items-center gap-2 ml-1"
+              className="p-1 rounded-xl hover:bg-violet-50 transition-colors flex items-center gap-2 ml-1"
               title={user ? `Signed in as ${user.name}` : 'Sign In'}
               aria-label="Account"
             >
@@ -173,10 +159,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
                 <img
                   src={user.avatar}
                   alt={user.name}
-                  className="w-7 h-7 rounded-full ring-2 ring-emerald-500/50 object-cover"
+                  className="w-8 h-8 rounded-full ring-2 ring-pink-500/60 object-cover"
                 />
               ) : (
-                <div className="w-7 h-7 rounded-full bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-zinc-400">
+                <div className="w-8 h-8 rounded-full bg-violet-100 flex items-center justify-center text-violet-600">
                   <UserIcon className="w-4 h-4" />
                 </div>
               )}
@@ -185,7 +171,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
             {/* Mobile Hamburger Menu */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 md:hidden text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-900 rounded-xl"
+              className="p-2 md:hidden text-slate-600 hover:bg-slate-100 rounded-xl"
               aria-label="Toggle mobile menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -201,25 +187,25 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-b border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-4 pt-2 pb-5 space-y-1.5"
+            className="md:hidden border-b border-slate-200 bg-white px-4 pt-2 pb-5 space-y-1.5 shadow-lg"
           >
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 to={link.path}
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2.5 rounded-xl text-base font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900"
+                className="block px-3.5 py-2.5 rounded-xl text-sm font-bold text-slate-800 hover:bg-violet-50 hover:text-violet-600 transition-colors"
               >
                 {link.label}
               </Link>
             ))}
-            <div className="pt-2 border-t border-zinc-200 dark:border-zinc-800 flex items-center justify-between">
+            <div className="pt-3 border-t border-slate-200 flex items-center justify-between">
               <Link
                 to="/wishlist"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-medium text-zinc-600 dark:text-zinc-400 flex items-center gap-2"
+                className="text-xs font-bold text-slate-600 hover:text-pink-600 flex items-center gap-2"
               >
-                <Heart className="w-4 h-4 text-rose-500" />
+                <Heart className="w-4 h-4 text-pink-500" />
                 Wishlist ({wishlistCount})
               </Link>
               {compareCount > 0 && (
@@ -228,7 +214,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
                     setMobileMenuOpen(false);
                     setCompareOpen(true);
                   }}
-                  className="text-sm font-medium text-emerald-600 dark:text-emerald-400 flex items-center gap-2"
+                  className="text-xs font-bold text-cyan-600 flex items-center gap-2"
                 >
                   <Layers className="w-4 h-4" />
                   Compare ({compareCount})

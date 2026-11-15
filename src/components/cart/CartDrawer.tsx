@@ -64,19 +64,19 @@ export const CartDrawer: React.FC = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="w-screen max-w-md bg-white dark:bg-zinc-900 border-l border-zinc-200 dark:border-zinc-800 shadow-2xl flex flex-col"
+              className="w-screen max-w-md bg-white border-l border-slate-200 shadow-2xl flex flex-col"
             >
               {/* Header */}
-              <div className="p-5 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between">
+              <div className="p-5 border-b border-slate-200 flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
-                  <ShoppingBag className="w-5 h-5 text-emerald-500" />
-                  <h3 className="font-bold text-lg text-zinc-900 dark:text-zinc-100">
+                  <ShoppingBag className="w-5 h-5 text-violet-600" />
+                  <h3 className="font-black text-lg text-slate-900 font-display">
                     Your Cart ({totalCount})
                   </h3>
                 </div>
                 <button
                   onClick={() => setIsCartOpen(false)}
-                  className="p-1.5 rounded-lg text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                  className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
                   aria-label="Close cart"
                 >
                   <X className="w-5 h-5" />
@@ -183,42 +183,46 @@ export const CartDrawer: React.FC = () => {
 
               {/* Footer Summary & Checkout Button */}
               {items.length > 0 && (
-                <div className="p-5 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 space-y-3.5">
+                <div className="p-5 border-t border-slate-200 bg-slate-50 space-y-3.5">
                   <CouponInput />
 
                   <div className="space-y-1.5 text-xs">
-                    <div className="flex justify-between text-zinc-600 dark:text-zinc-400">
+                    <div className="flex justify-between text-slate-600">
                       <span>Subtotal</span>
-                      <span className="font-medium text-zinc-900 dark:text-zinc-100">{formatCurrency(subtotal)}</span>
+                      <span className="font-bold text-slate-900">{formatCurrency(subtotal)}</span>
                     </div>
 
                     {discount > 0 && (
-                      <div className="flex justify-between text-emerald-600 dark:text-emerald-400 font-medium">
+                      <div className="flex justify-between text-pink-600 font-bold">
                         <span>Discount</span>
                         <span>-{formatCurrency(discount)}</span>
                       </div>
                     )}
 
-                    <div className="flex justify-between text-zinc-600 dark:text-zinc-400">
+                    <div className="flex justify-between text-slate-600">
                       <span>Shipping</span>
-                      <span>{shipping === 0 ? <strong className="text-emerald-600">FREE</strong> : formatCurrency(shipping)}</span>
+                      <span className="font-bold text-slate-900">
+                        {shipping === 0 ? <strong className="text-violet-600">FREE</strong> : formatCurrency(shipping)}
+                      </span>
                     </div>
 
-                    <div className="pt-2 border-t border-zinc-200 dark:border-zinc-800 flex justify-between items-baseline text-sm font-bold text-zinc-900 dark:text-zinc-100">
+                    <div className="pt-2 border-t border-slate-200 flex justify-between items-baseline text-sm font-bold text-slate-900">
                       <span>Estimated Total</span>
-                      <span className="text-base text-emerald-600 dark:text-emerald-400">{formatCurrency(total)}</span>
+                      <span className="text-lg font-black bg-gradient-to-r from-violet-600 via-pink-600 to-amber-500 bg-clip-text text-transparent font-display">
+                        {formatCurrency(total)}
+                      </span>
                     </div>
                   </div>
 
                   <button
                     onClick={handleCheckout}
-                    className="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm transition-colors shadow-lg shadow-emerald-600/20 flex items-center justify-center gap-2 group"
+                    className="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-violet-600 via-pink-600 to-amber-500 hover:opacity-95 text-white font-black text-xs transition-all shadow-xl shadow-pink-500/25 flex items-center justify-center gap-2 group"
                   >
                     <span>Proceed to Checkout</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
 
-                  <p className="text-center text-[10px] text-zinc-400">
+                  <p className="text-center text-[10px] text-slate-400 font-medium">
                     Taxes calculated during checkout • 30-Day Guaranteed Returns
                   </p>
                 </div>

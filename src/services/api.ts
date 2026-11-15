@@ -1,5 +1,6 @@
 import { Product, ProductReview, Category } from '../types';
 import { INITIAL_PRODUCTS } from '../data/products';
+import { useApiLogStore } from '../store/useApiLogStore';
 
 // In-memory store that can receive runtime updates (like new reviews)
 let productsData: Product[] = [...INITIAL_PRODUCTS];
@@ -9,6 +10,7 @@ export const VALID_COUPONS: Record<string, { discountPercent: number; descriptio
   'AURA20': { discountPercent: 0.20, description: '20% off summer studio refresh' },
   'STUDIO50': { discountPercent: 0.15, description: '15% off workspace collection' },
   'FREESHIP': { discountPercent: 0.05, description: '5% bonus + priority freight waive' },
+  'COLORPOP': { discountPercent: 0.25, description: '25% bright chromatic collection discount' },
 };
 
 export const api = {
@@ -21,8 +23,8 @@ export const api = {
     minRating?: number;
     sortBy?: 'featured' | 'price-asc' | 'price-desc' | 'rating-desc' | 'newest';
   }): Promise<Product[]> {
-    // simulate network latency
-    await new Promise((resolve) => setTimeout(resolve, 200));
+    const startTime = performance.now();
+    await new Promise((resolve) => setTimeout(resolve, 180));
 
     let filtered = [...productsData];
 
@@ -80,31 +82,64 @@ export const api = {
       }
     }
 
+    const durationMs = Math.round(performance.now() - startTime);
+    useApiLogStore.getState().addLog({
+      method: 'GET',
+      endpoint: `/api/products?category=${params?.category || 'All'}`,
+      status: 200,
+      durationMs,
+      responseBody: { count: filtered.length, results: filtered.slice(0, 3) },
+    });
+
     return filtered;
   },
 
   async getProductById(id: string): Promise<Product | null> {
-    await new Promise((resolve) => setTimeout(resolve, 150));
+    const startTime = performance.now();
+    await new Promise((resolve) => setTimeout(resolve, 140));
     const product = productsData.find((p) => p.id === id || p.slug === id);
+
+    const durationMs = Math.round(performance.now() - startTime);
+    useApiLogStore.getState().addLog({
+      method: 'GET',
+      endpoint: `/api/products/${id}`,
+      status: product ? 200 : 404,
+      durationMs,
+      responseBody: product || { error: 'Product not found' },
+    });
+
     return product || null;
   },
 
   async getRelatedProducts(productId: string, limit = 4): Promise<Product[]> {
+    const startTime = performance.now();
     await new Promise((resolve) => setTimeout(resolve, 100));
     const target = productsData.find((p) => p.id === productId);
     if (!target) return productsData.slice(0, limit);
 
-    return productsData
-      .filter((p) => p.id !== productId && p.category === target.category)
-      .concat(productsData.filter((p) => p.id !== productId && p.category !== target.category))
+    const related = productsData
+      .filter((p) => p.id !== target.id && p.category === target.category)
+      .concat(productsData.filter((p) => p.id !== target.id && p.category !== target.category))
       .slice(0, limit);
+
+    const durationMs = Math.round(performance.now() - startTime);
+    useApiLogStore.getState().addLog({
+      method: 'GET',
+      endpoint: `/api/products/${productId}/related`,
+      status: 200,
+      durationMs,
+      responseBody: { count: related.length },
+    });
+
+    return related;
   },
 
   async addReview(
     productId: string,
     reviewData: Omit<ProductReview, 'id' | 'date' | 'helpfulCount' | 'verifiedPurchase'>
   ): Promise<ProductReview> {
-    await new Promise((resolve) => setTimeout(resolve, 300));
+    const startTime = performance.now();
+    await new Promise((resolve) => setTimeout(resolve, 250));
     const target = productsData.find((p) => p.id === productId);
     if (!target) throw new Error('Product not found');
 
@@ -117,20 +152,41 @@ export const api = {
     };
 
     target.reviews = [newReview, ...target.reviews];
-    // recalculate average rating
     const totalScore = target.reviews.reduce((acc, r) => acc + r.rating, 0);
     target.rating = Number((totalScore / target.reviews.length).toFixed(1));
     target.reviewCount = target.reviews.length;
+
+    const durationMs = Math.round(performance.now() - startTime);
+    useApiLogStore.getState().addLog({
+      method: 'POST',
+      endpoint: `/api/products/${productId}/reviews`,
+      status: 201,
+      durationMs,
+      requestBody: reviewData,
+      responseBody: newReview,
+    });
 
     return newReview;
   },
 
   async validateCoupon(code: string): Promise<{ valid: boolean; discountPercent?: number; description?: string; message?: string }> {
-    await new Promise((resolve) => setTimeout(resolve, 200));
+    const startTime = performance.now();
+    await new Promise((resolve) => setTimeout(resolve, 180));
     const cleanCode = code.toUpperCase().trim();
     const coupon = VALID_COUPONS[cleanCode];
 
+    const durationMs = Math.round(performance.now() - startTime);
+
     if (coupon) {
+      useApiLogStore.getState().addLog({
+        method: 'POST',
+        endpoint: '/api/coupons/validate',
+        status: 200,
+        durationMs,
+        requestBody: { code: cleanCode },
+        responseBody: coupon,
+      });
+
       return {
         valid: true,
         discountPercent: coupon.discountPercent,
@@ -138,9 +194,18 @@ export const api = {
       };
     }
 
+    useApiLogStore.getState().addLog({
+      method: 'POST',
+      endpoint: '/api/coupons/validate',
+      status: 404,
+      durationMs,
+      requestBody: { code: cleanCode },
+      responseBody: { valid: false, error: 'Invalid coupon' },
+    });
+
     return {
       valid: false,
-      message: 'Invalid or expired promo code. Try WELCOME10 or AURA20',
+      message: 'Invalid or expired promo code. Try WELCOME10, AURA20, or COLORPOP',
     };
   },
 };

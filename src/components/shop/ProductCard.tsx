@@ -192,12 +192,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   return (
     <>
       <div
-        className="group relative flex flex-col rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800/80 hover:border-zinc-300 dark:hover:border-zinc-700 hover:shadow-xl transition-all duration-300 overflow-hidden"
+        className="group relative flex flex-col rounded-3xl bg-white border-2 border-slate-100 hover:border-violet-300 hover:shadow-xl hover:shadow-violet-500/10 transition-all duration-300 overflow-hidden"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         {/* Image Frame */}
-        <div className="relative aspect-square w-full bg-zinc-100 dark:bg-zinc-800/60 overflow-hidden">
+        <div className="relative aspect-square w-full bg-slate-100 overflow-hidden">
           <Link to={`/product/${product.id}`} className="block w-full h-full">
             <img
               src={isHovered && product.images[1] ? product.images[1] : product.images[0]}
@@ -209,9 +209,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           {/* Badges */}
           {product.badge && (
             <div className="absolute top-3 left-3 z-10 pointer-events-none">
-              <Badge variant={product.badge === 'Sale' ? 'sale' : product.badge === 'Limited Edition' ? 'gold' : 'accent'}>
+              <span className="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider text-white bg-gradient-to-r from-violet-600 via-pink-600 to-amber-500 shadow-md">
                 {product.badge}
-              </Badge>
+              </span>
             </div>
           )}
 
@@ -221,21 +221,21 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               onClick={handleWishlist}
               className={`p-2 rounded-xl backdrop-blur-md transition-all shadow-md ${
                 isWishlisted
-                  ? 'bg-rose-50 text-rose-600 dark:bg-rose-950/80 dark:text-rose-400 scale-105'
-                  : 'bg-white/80 dark:bg-zinc-900/80 text-zinc-500 dark:text-zinc-400 hover:text-rose-500 dark:hover:text-rose-400 hover:scale-110'
+                  ? 'bg-rose-50 text-rose-600 scale-105'
+                  : 'bg-white/90 text-slate-500 hover:text-pink-600 hover:scale-110'
               }`}
               title={isWishlisted ? 'Remove from wishlist' : 'Save to wishlist'}
               aria-label="Wishlist"
             >
-              <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-rose-500' : ''}`} />
+              <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-rose-500 text-rose-500' : ''}`} />
             </button>
 
             <button
               onClick={handleCompare}
               className={`p-2 rounded-xl backdrop-blur-md transition-all shadow-md ${
                 isCompared
-                  ? 'bg-emerald-50 text-emerald-600 dark:bg-emerald-950/80 dark:text-emerald-400 scale-105'
-                  : 'bg-white/80 dark:bg-zinc-900/80 text-zinc-500 dark:text-zinc-400 hover:text-emerald-500 hover:scale-110'
+                  ? 'bg-cyan-50 text-cyan-600 scale-105'
+                  : 'bg-white/90 text-slate-500 hover:text-cyan-600 hover:scale-110'
               }`}
               title={isCompared ? 'Remove from compare' : 'Compare product'}
               aria-label="Compare"
@@ -252,43 +252,43 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           >
             <button
               onClick={openQuickView}
-              className="w-full py-2 px-3 rounded-xl bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-zinc-100 text-xs font-bold hover:bg-white dark:hover:bg-zinc-800 transition-colors shadow-lg flex items-center justify-center gap-1.5"
+              className="w-full py-2 px-3 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 text-slate-900 text-xs font-bold hover:bg-slate-50 transition-colors shadow-lg flex items-center justify-center gap-1.5"
             >
-              <Eye className="w-3.5 h-3.5" />
+              <Eye className="w-3.5 h-3.5 text-violet-600" />
               <span>Quick Preview</span>
             </button>
           </div>
         </div>
 
         {/* Content */}
-        <div className="p-4 flex-1 flex flex-col justify-between space-y-2.5">
+        <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
           <div>
-            <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-zinc-500 dark:text-zinc-400 font-semibold mb-1">
-              <span>{product.category}</span>
+            <div className="flex items-center justify-between text-[11px] uppercase tracking-wider font-extrabold mb-1">
+              <span className="text-violet-600 bg-violet-50 px-2 py-0.5 rounded-md">{product.category}</span>
               {product.variants && product.variants.length > 0 && (
-                <span>{product.variants.length} finishes</span>
+                <span className="text-slate-400 font-semibold">{product.variants.length} colorways</span>
               )}
             </div>
 
             <Link to={`/product/${product.id}`} className="block">
-              <h3 className="font-bold text-sm text-zinc-900 dark:text-zinc-100 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors line-clamp-1 font-display">
+              <h3 className="font-extrabold text-sm text-slate-900 hover:text-pink-600 transition-colors line-clamp-1 font-display">
                 {product.name}
               </h3>
             </Link>
 
-            <p className="text-xs text-zinc-500 dark:text-zinc-400 line-clamp-1 mt-0.5">
+            <p className="text-xs text-slate-500 line-clamp-1 mt-0.5 font-medium">
               {product.tagline}
             </p>
           </div>
 
-          <div className="pt-2 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between">
+          <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
             <div>
               <div className="flex items-baseline gap-1.5">
-                <span className="text-base font-extrabold text-zinc-900 dark:text-zinc-100">
+                <span className="text-lg font-black text-slate-900 font-display">
                   {formatCurrency(product.price)}
                 </span>
                 {product.originalPrice && (
-                  <span className="text-xs text-zinc-400 line-through">
+                  <span className="text-xs text-slate-400 line-through">
                     {formatCurrency(product.originalPrice)}
                   </span>
                 )}
@@ -301,10 +301,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             {/* Quick Add Button */}
             <button
               onClick={handleQuickAdd}
-              className={`p-2.5 rounded-xl text-xs font-semibold transition-all duration-200 flex items-center justify-center shadow-sm ${
+              className={`p-2.5 rounded-xl text-xs font-bold transition-all duration-200 flex items-center justify-center shadow-md ${
                 addedAnim
                   ? 'bg-emerald-500 text-white'
-                  : 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:bg-emerald-600 dark:hover:bg-emerald-400 hover:text-white'
+                  : 'bg-gradient-to-r from-violet-600 via-pink-600 to-amber-500 hover:opacity-95 text-white shadow-pink-500/20'
               }`}
               title="Add to Cart"
               aria-label="Add to Cart"

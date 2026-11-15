@@ -2,7 +2,7 @@ import React from 'react';
 
 interface BadgeProps {
   children: React.ReactNode;
-  variant?: 'primary' | 'secondary' | 'accent' | 'sale' | 'gold' | 'outline';
+  variant?: 'primary' | 'secondary' | 'accent' | 'sale' | 'gold' | 'outline' | 'violet';
   className?: string;
 }
 
@@ -12,17 +12,18 @@ export const Badge: React.FC<BadgeProps> = ({
   className = '',
 }) => {
   const variantStyles = {
-    primary: 'bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200 border-zinc-200 dark:border-zinc-700',
-    secondary: 'bg-zinc-200/60 text-zinc-700 dark:bg-zinc-700/50 dark:text-zinc-300 border-transparent',
-    accent: 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800/60',
-    sale: 'bg-rose-50 text-rose-700 dark:bg-rose-950/40 dark:text-rose-400 border-rose-200 dark:border-rose-800/60',
-    gold: 'bg-amber-50 text-amber-800 dark:bg-amber-950/40 dark:text-amber-400 border-amber-200 dark:border-amber-800/60',
-    outline: 'bg-transparent text-zinc-700 dark:text-zinc-300 border-zinc-300 dark:border-zinc-700',
+    primary: 'bg-violet-100 text-violet-800 border-violet-200',
+    secondary: 'bg-pink-100 text-pink-800 border-pink-200',
+    accent: 'bg-cyan-100 text-cyan-800 border-cyan-200',
+    sale: 'bg-rose-100 text-rose-800 border-rose-200',
+    gold: 'bg-amber-100 text-amber-800 border-amber-200',
+    violet: 'bg-purple-100 text-purple-800 border-purple-200',
+    outline: 'bg-white text-slate-800 border-slate-300',
   };
 
   return (
     <span
-      className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium tracking-wide uppercase border ${variantStyles[variant]} ${className}`}
+      className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-black tracking-wider uppercase border shadow-xs ${variantStyles[variant]} ${className}`}
     >
       {children}
     </span>

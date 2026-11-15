@@ -17,12 +17,12 @@ export const MobileNav: React.FC<MobileNavProps> = ({ onOpenSearch }) => {
   const wishlistCount = wishlistItems.length;
 
   return (
-    <div className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-md border-t border-zinc-200 dark:border-zinc-800 py-2 px-4 flex items-center justify-around text-[10px] font-semibold text-zinc-500 dark:text-zinc-400">
+    <div className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-indigo-100 py-2 px-4 flex items-center justify-around text-[10px] font-semibold text-zinc-600 shadow-lg">
       {/* Home */}
       <Link
         to="/"
         className={`flex flex-col items-center gap-1 p-1 ${
-          location.pathname === '/' ? 'text-emerald-600 dark:text-emerald-400 font-bold' : ''
+          location.pathname === '/' ? 'text-violet-600 font-extrabold' : 'hover:text-violet-600'
         }`}
       >
         <Home className="w-5 h-5" />
@@ -33,7 +33,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ onOpenSearch }) => {
       <Link
         to="/shop"
         className={`flex flex-col items-center gap-1 p-1 ${
-          location.pathname.startsWith('/shop') ? 'text-emerald-600 dark:text-emerald-400 font-bold' : ''
+          location.pathname.startsWith('/shop') ? 'text-violet-600 font-extrabold' : 'hover:text-violet-600'
         }`}
       >
         <Store className="w-5 h-5" />
@@ -43,7 +43,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ onOpenSearch }) => {
       {/* Search trigger */}
       <button
         onClick={onOpenSearch}
-        className="flex flex-col items-center gap-1 p-1 hover:text-emerald-500"
+        className="flex flex-col items-center gap-1 p-1 hover:text-violet-600"
       >
         <Search className="w-5 h-5" />
         <span>Search</span>
@@ -53,13 +53,13 @@ export const MobileNav: React.FC<MobileNavProps> = ({ onOpenSearch }) => {
       <Link
         to="/wishlist"
         className={`relative flex flex-col items-center gap-1 p-1 ${
-          location.pathname === '/wishlist' ? 'text-emerald-600 dark:text-emerald-400 font-bold' : ''
+          location.pathname === '/wishlist' ? 'text-pink-600 font-extrabold' : 'hover:text-pink-600'
         }`}
       >
         <Heart className="w-5 h-5" />
         <span>Wishlist</span>
         {wishlistCount > 0 && (
-          <span className="absolute top-0 right-1 w-3.5 h-3.5 bg-rose-500 text-white text-[9px] font-bold rounded-full flex items-center justify-center">
+          <span className="absolute top-0 right-1 w-3.5 h-3.5 bg-gradient-to-r from-pink-500 to-rose-500 text-white text-[9px] font-black rounded-full flex items-center justify-center shadow-sm">
             {wishlistCount}
           </span>
         )}
@@ -68,12 +68,12 @@ export const MobileNav: React.FC<MobileNavProps> = ({ onOpenSearch }) => {
       {/* Cart */}
       <button
         onClick={() => setIsCartOpen(true)}
-        className="relative flex flex-col items-center gap-1 p-1 hover:text-emerald-500"
+        className="relative flex flex-col items-center gap-1 p-1 hover:text-violet-600"
       >
         <ShoppingBag className="w-5 h-5" />
         <span>Bag</span>
         {cartCount > 0 && (
-          <span className="absolute top-0 right-1 w-3.5 h-3.5 bg-emerald-500 text-white text-[9px] font-bold rounded-full flex items-center justify-center">
+          <span className="absolute top-0 right-1 w-3.5 h-3.5 bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-[9px] font-black rounded-full flex items-center justify-center shadow-sm">
             {cartCount}
           </span>
         )}

@@ -1,131 +1,156 @@
-# AURA Studio — Responsive E-Commerce Platform
+# 🌈 CHROMALUX Studio — Full Stack E-Commerce Web Application
 
-> An intentional, design-forward shopping experience for acoustic hardware, minimalist desk objects, and tactile lifestyle artifacts.
-
-**🌐 Live Site**: [https://guhan-art.github.io/E-Commerce/](https://guhan-art.github.io/E-Commerce/)
-
-![AURA Studio Preview](https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1400&q=80)
+> **A high-energy, vibrant full-stack commerce experience designed with chromatic color styling, responsive architecture, and interactive developer telemetry.**
 
 ---
 
-## 🌟 Overview
+### 🌐 Live Production URL
+👉 **[https://guhan-art.github.io/E-Commerce/](https://guhan-art.github.io/E-Commerce/)**
 
-**AURA Studio** was built from the ground up as a complete, production-grade e-commerce application. It transcends static landing pages to deliver an immersive end-to-end shopping journey: from multi-factor live catalog exploration and detailed variant configuration to interactive cart management, validated multi-step checkout, real-time simulated payment processing, and comprehensive order tracking.
-
----
-
-## ✨ Key Features
-
-### 1. Catalog & Discovery (`/shop`)
-- **Real-Time Live Search**: Instant debounced search with global keyboard shortcut (`/`) and query highlighting.
-- **Multi-Factor Filtering**:
-  - Filter by category (*Audio, Workspace, Wearables, Lifestyle, Optics*).
-  - Dynamic dual price slider with live currency formatting.
-  - In-stock only filter toggle.
-  - Customer review threshold filter (4★+ & 4.5★+).
-  - One-click **Reset Filters** button.
-- **Sorting Modes**: Featured Picks, Price (Low to High), Price (High to Low), Highest Rated, and Newest Releases.
-- **View Modes**: Responsive toggle between visual **Grid View** and detailed **List View**.
-- **Dual Navigation**: Switch effortlessly between **Numbered Pagination** and **Infinite / Load More** scroll.
-- **Quick View Modal**: Inspect finishes, sizes, specs, and add items directly to your bag without navigating away from the catalog.
-
-### 2. Product Details (`/product/:id`)
-- **Interactive Gallery**: Main image with cursor-following hover zoom magnifier, thumbnail rail, and fullscreen lightbox with keyboard and arrow navigation.
-- **Finishes & Variant Selector**: Visual color swatches with active ring feedback, configuration/size pills, and dynamic price adjustments.
-- **Inventory Feedback**: Dynamic live stock status indicator (e.g., *"Only 5 left in stock!"*).
-- **Quantity Selector**: Increment/decrement controls with stock ceiling validation.
-- **Dual Purchase Actions**: Standard *"Add to Bag"* with animated confirmation or 1-click *"Instant Buy"* express checkout.
-- **Customer Ratings & Reviews**:
-  - Comprehensive star distribution percentage bars (5★ to 1★).
-  - Filter reviews by star rating.
-  - Interactive **Write a Review** modal with star picker and instant optimistic submission.
-  - "Helpful" thumbs-up toggle with optimistic count increments.
-- **Related Recommendations & Recently Viewed Rail**: Context-aware product carousels based on category and browsing history.
-
-### 3. Shopping Cart & Drawer
-- **Persistent Slide-Over Mini-Cart**: Accessible globally from the navbar across every page.
-- **Dedicated Cart Page (`/cart`)**: Detailed tabular item review, quantity adjustments, and remove actions.
-- **Free Shipping Milestone Bar**: Dynamic progress calculation encouraging higher basket values (unlocked at \$150+).
-- **Promo Code Engine**:
-  - `WELCOME10` — 10% off for new creators
-  - `AURA20` — 20% off summer studio refresh
-  - `FREESHIP` — Waives express freight shipping
-  - Invalid code feedback and instant deduction breakdown.
-- **State Persistence**: Backed by `localStorage` via Zustand middleware, ensuring carts survive page reloads and browser restarts.
-
-### 4. Streamlined 3-Step Checkout (`/checkout`)
-- **Step 1: Recipient & Shipping Address**: Form with real-time validation and clear inline error feedback.
-- **Step 2: Delivery Speed Selection**: Choose between Standard Freight (Free on \$150+) and Priority Air Express.
-- **Step 3: Payment Methods**:
-  - **Credit / Debit Card**: Includes an interactive virtual card preview that renders cardholder name, masked card number, and expiry date live as you type.
-  - **UPI / Instant QR**: Simulated scan-to-pay interface.
-  - **Cash on Delivery**: Option for doorstep collection.
-- **Simulated Clearinghouse Flow**: Multi-stage authorization spinner (*TLS handshake → Account verification → Fulfillment allocation → Waybill generation*).
-
-### 5. Order Confirmation & Tracking (`/order-confirmation/:orderId`)
-- Celebratory confetti feedback upon successful checkout.
-- Auto-generated unique order reference number (e.g. `AUR-98214`) and carrier tracking code.
-- Interactive **Live Order Status Timeline** (*Order Placed → Studio Fulfillment → Dispatched in Transit → Delivered*) with status simulation switcher.
-- Printable / downloadable invoice receipt.
-
-### 6. Order History (`/orders`)
-- Browse all past studio orders with date, amount, and recipient tags.
-- Search orders by order ID or product title.
-- One-click **Reorder All** action that loads past items directly back into the cart.
-
-### 7. Wishlist & Comparison
-- **Wishlist (`/wishlist`)**: Save items for future review, with a 1-click *"Move All to Bag"* action.
-- **Side-by-Side Product Comparison**: Compare up to 4 products in a floating matrix comparing specs, availability, ratings, and pricing.
-
-### 8. Theming & Accessibility
-- **Dark & Light Mode**: Smooth transition with persistent theme preference.
-- **Fully Responsive**: Bespoke ergonomics tailored for mobile (375px), tablet (768px), and ultra-wide desktop monitors (1440px+).
+### 📦 GitHub Repository
+👉 **[https://github.com/guhan-art/E-Commerce](https://github.com/guhan-art/E-Commerce)**
 
 ---
 
-## 🛠️ Tech Stack
-
-- **Frontend**: React 18, TypeScript, Vite
-- **Styling**: Tailwind CSS, Lucide React Icons
-- **State Management**: Zustand with persistent storage
-- **Animations**: Framer Motion, Canvas Confetti
-- **Routing**: React Router DOM v6
-- **Architecture**: Modular component architecture, Separation of Concerns (Stores, Services, Components, Pages)
+## 📌 Repository "About" Section Configuration
+To update the repository's About section on GitHub:
+1. Go to **[https://github.com/guhan-art/E-Commerce](https://github.com/guhan-art/E-Commerce)**
+2. Click the gear icon ⚙️ next to **About** on the top right
+3. Paste the following:
+   - **Description**: `🌈 CHROMALUX Studio — High-energy, colorful Full-Stack Web Development (FSWD) e-commerce application with React 18, TypeScript, Express REST API, and live developer telemetry.`
+   - **Website**: `https://guhan-art.github.io/E-Commerce/`
+   - **Topics**: `full-stack`, `ecommerce`, `react`, `typescript`, `express`, `tailwind-css`, `rest-api`, `fswd`, `chromatic-design`
+4. Click **Save changes**.
 
 ---
 
-## 🚀 Getting Started
+## 🎨 Creative & Aesthetic Direction
+
+Unlike conventional dark or muted templates, **CHROMALUX Studio** is crafted around an intentional **bright, chromatic visual language**:
+- **Palette**: Electric Violet (`#7C3AED`), Sunset Pink (`#EC4899`), Radiant Sunburst Amber (`#F59E0B`), and Electric Aqua (`#06B6D4`).
+- **Craftsmanship**: Multi-stop gradient typography, frosted glass blur headers, holographic badges, chromatic shadows, and fluid micro-interactions.
+- **Originality**: Engineered by hand without cookie-cutter UI kits to demonstrate senior front-end and full-stack design capabilities.
+
+---
+
+## 🏗️ Full-Stack Architecture (FSWD)
+
+```mermaid
+flowchart TD
+    Client["Vite + React 18 + TypeScript Client"]
+    Store["State Management (Zustand + LocalStorage)"]
+    Telemetry["Interactive FSWD API Inspector Console"]
+    API["Express 4 + TypeScript REST API Server (/server)"]
+    Database["In-Memory Reactive Data Store & ORM"]
+
+    Client -->|Actions & Dispatch| Store
+    Client -->|HTTP Requests| Telemetry
+    Telemetry -->|Simulated / Local Proxy| API
+    API -->|CRUD Operations| Database
+```
+
+### Dual Full-Stack Execution
+1. **Interactive Client Telemetry Runner**: A live, floating **FSWD API Inspector Console** embedded directly into the application. Hiring managers and evaluators can inspect live HTTP network calls (endpoints, latency, headers, JSON payloads), trigger API runs, and review system architecture live on GitHub Pages.
+2. **Dedicated Node/Express TypeScript Microservice (`/server`)**: Complete backend server with modular routes (`/api/products`, `/api/orders`, `/api/auth`, `/api/coupons`, `/api/analytics`, `/api/health`), JWT authentication middleware, and input validation.
+
+---
+
+## 🚀 Key Functional Capabilities
+
+### 1. Product Discovery & Listing (`/shop`)
+- **Instant Search**: Debounced search with shortcut `/` and real-time query matching.
+- **Multi-Factor Filtering**: Category selection, dynamic range slider, minimum rating threshold, and in-stock toggle.
+- **Dual Presentation**: Responsive toggle between Grid view and detailed List view.
+- **Pagination & Infinite Scroll**: Seamless toggle between standard numbered pagination and continuous infinite loading.
+- **Quick View Modal**: Inspect variants, image previews, and specifications without leaving the catalog.
+
+### 2. Product Detail & Customization (`/product/:id`)
+- **Interactive Image Gallery**: Main photo with cursor-follow hover magnifier, thumbnail switcher, and fullscreen lightbox modal.
+- **Variant Swatches**: Dynamic color finishes and hardware configurations with real-time price updates.
+- **Stock Counter**: Live stock level feedback.
+- **Customer Reviews & Ratings**: Star breakdown percentage bars, verified review list, and optimistic review submission modal.
+- **Express Checkout**: Single-click "Instant Buy" express checkout option.
+
+### 3. Shopping Cart & State Persistence (`/cart`)
+- **Mini-Cart Drawer**: Global slide-out drawer accessible from anywhere in the app.
+- **Free Shipping Gamification**: Dynamic progress meter toward the \$150 free delivery milestone.
+- **Coupon Engine**:
+  - `WELCOME10` — 10% off storewide
+  - `CHROMA20` — 20% off high-tier studio gear
+  - `FREESHIP` — 100% waiver on freight delivery
+- **Complete Persistence**: Backed by `localStorage` to preserve user carts across page refreshes and browser sessions.
+
+### 4. 3-Step Validated Checkout (`/checkout`)
+- **Step 1 — Recipient & Shipping**: Full name, email, phone, and complete postal address with real-time validation.
+- **Step 2 — Shipping Tier Selection**: Standard Freight vs. Priority Air Express.
+- **Step 3 — Secure Payment**:
+  - Credit/Debit card with **interactive virtual card preview** that updates dynamically as you type.
+  - Express UPI QR Code with simulated payment authentication.
+- **Realistic Payment Simulation**: Multi-stage progress indicators (`Connecting 256-bit TLS` -> `Authorizing gateway` -> `Securing escrow`).
+
+### 5. Order Tracking & History (`/orders`)
+- **Generated Order Numbers**: Unique tracking numbers (`CRX-XXXXX`) and courier tracking barcodes (`TRK-FEDEX-XXXXX`).
+- **Status Lifecycle**: Visual tracking stages (`Processing` -> `Shipped` -> `Delivered`).
+- **One-Click Reorder**: Add past order items back into the bag with a single tap.
+
+### 6. Bonus Engineering Features
+- 🛡️ **User Authentication**: Mock JWT bearer token authentication with instant demo user sign-in.
+- 💖 **Wishlist System**: Save coveted editions and move all to bag with 1 click.
+- ⚖️ **Product Comparison Drawer**: Compare specs and acoustic metrics side-by-side.
+- 👁️ **Recently Viewed Rail**: Context-aware product rail tracking browsing history.
+- 🛠️ **Floating API Inspector**: Live network traffic monitor with latency measurements and JSON payloads.
+
+---
+
+## 💻 Tech Stack
+
+| Layer | Technologies |
+|---|---|
+| **Frontend Framework** | React 18, TypeScript, Vite |
+| **Styling & Theme** | Tailwind CSS 3, Custom Chromatic Palettes, Headless UI |
+| **State Management** | Zustand (with persistent localStorage middleware) |
+| **Routing** | React Router v6 |
+| **Icons & Media** | Lucide React, Unsplash Curated CDN |
+| **Backend Framework** | Node.js, Express, TypeScript |
+| **API Architecture** | RESTful JSON API with CORS, JWT Bearer Auth |
+| **Deployment** | GitHub Actions (`deploy.yml`), GitHub Pages (`gh-pages`) |
+
+---
+
+## 🏃 Quick Start (Local Development)
 
 ### Prerequisites
-- Node.js (v18 or higher recommended)
+- Node.js (v18 or higher)
 - npm or yarn
 
-### Installation
+### 1. Clone the repository
+```bash
+git clone https://github.com/guhan-art/E-Commerce.git
+cd E-Commerce
+```
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/guhan-art/E-Commerce.git
-   cd E-Commerce
-   ```
+### 2. Install dependencies
+```bash
+npm install
+cd server && npm install && cd ..
+```
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+### 3. Run development servers
+```bash
+# Run the frontend application (Vite on http://localhost:5173)
+npm run dev
 
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
+# In a second terminal, run the standalone Express REST server
+npm run dev:server
+```
 
-4. Build for production:
-   ```bash
-   npm run build
-   ```
+### 4. Build for production
+```bash
+npm run build
+npm run build:server
+```
 
 ---
 
-## 👤 Author
-
-**Guhan Raj**  
-- Portfolio: [GitHub](https://github.com/guhan-art)
+## 📄 License
+MIT License © Guhan Raj S

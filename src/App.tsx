@@ -7,6 +7,7 @@ import { CartDrawer } from './components/cart/CartDrawer';
 import { AuthModal } from './components/auth/AuthModal';
 import { SearchModal } from './components/shop/SearchModal';
 import { ToastContainer } from './components/common/ToastContainer';
+import { ApiInspector } from './components/common/ApiInspector';
 
 import { Home } from './pages/Home';
 import { Shop } from './pages/Shop';
@@ -53,7 +54,7 @@ export const AppContent: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors">
+    <div className="min-h-screen flex flex-col bg-[#FAFAFC] text-slate-900 font-sans selection:bg-violet-600 selection:text-white">
       <ScrollToTop />
       <Navbar onOpenSearch={() => setSearchOpen(true)} />
 
@@ -79,6 +80,7 @@ export const AppContent: React.FC = () => {
       <AuthModal />
       <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
       <ToastContainer />
+      <ApiInspector />
     </div>
   );
 };

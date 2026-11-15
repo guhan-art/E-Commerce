@@ -237,13 +237,15 @@ export const CheckoutPage: React.FC = () => {
           <div className="grid grid-cols-3 gap-3 text-xs font-bold">
             <button
               onClick={() => setCurrentStep(1)}
-              className={`p-3 rounded-xl border flex items-center gap-2 transition-colors ${
+              className={`p-3 rounded-xl border flex items-center gap-2 transition-all ${
                 currentStep === 1
-                  ? 'border-emerald-500 bg-emerald-50/50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 ring-1 ring-emerald-500'
-                  : 'border-zinc-200 dark:border-zinc-800 text-zinc-400'
+                  ? 'border-violet-500 bg-violet-50 text-violet-700 shadow-sm ring-2 ring-violet-500/20'
+                  : 'border-zinc-200 text-zinc-500 hover:border-violet-200'
               }`}
             >
-              <span className="w-5 h-5 rounded-full bg-emerald-500 text-white text-[10px] flex items-center justify-center font-bold">
+              <span className={`w-5 h-5 rounded-full text-[10px] flex items-center justify-center font-black ${
+                currentStep === 1 ? 'bg-gradient-to-r from-violet-600 to-indigo-600 text-white' : 'bg-zinc-200 text-zinc-600'
+              }`}>
                 1
               </span>
               <span>Address</span>
@@ -253,13 +255,15 @@ export const CheckoutPage: React.FC = () => {
               onClick={() => {
                 if (validateAddress()) setCurrentStep(2);
               }}
-              className={`p-3 rounded-xl border flex items-center gap-2 transition-colors ${
+              className={`p-3 rounded-xl border flex items-center gap-2 transition-all ${
                 currentStep === 2
-                  ? 'border-emerald-500 bg-emerald-50/50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 ring-1 ring-emerald-500'
-                  : 'border-zinc-200 dark:border-zinc-800 text-zinc-400'
+                  ? 'border-violet-500 bg-violet-50 text-violet-700 shadow-sm ring-2 ring-violet-500/20'
+                  : 'border-zinc-200 text-zinc-500 hover:border-violet-200'
               }`}
             >
-              <span className="w-5 h-5 rounded-full bg-emerald-500 text-white text-[10px] flex items-center justify-center font-bold">
+              <span className={`w-5 h-5 rounded-full text-[10px] flex items-center justify-center font-black ${
+                currentStep === 2 ? 'bg-gradient-to-r from-violet-600 to-indigo-600 text-white' : 'bg-zinc-200 text-zinc-600'
+              }`}>
                 2
               </span>
               <span>Shipping</span>
@@ -269,13 +273,15 @@ export const CheckoutPage: React.FC = () => {
               onClick={() => {
                 if (validateAddress()) setCurrentStep(3);
               }}
-              className={`p-3 rounded-xl border flex items-center gap-2 transition-colors ${
+              className={`p-3 rounded-xl border flex items-center gap-2 transition-all ${
                 currentStep === 3
-                  ? 'border-emerald-500 bg-emerald-50/50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 ring-1 ring-emerald-500'
-                  : 'border-zinc-200 dark:border-zinc-800 text-zinc-400'
+                  ? 'border-violet-500 bg-violet-50 text-violet-700 shadow-sm ring-2 ring-violet-500/20'
+                  : 'border-zinc-200 text-zinc-500 hover:border-violet-200'
               }`}
             >
-              <span className="w-5 h-5 rounded-full bg-emerald-500 text-white text-[10px] flex items-center justify-center font-bold">
+              <span className={`w-5 h-5 rounded-full text-[10px] flex items-center justify-center font-black ${
+                currentStep === 3 ? 'bg-gradient-to-r from-violet-600 to-indigo-600 text-white' : 'bg-zinc-200 text-zinc-600'
+              }`}>
                 3
               </span>
               <span>Payment</span>
@@ -284,9 +290,9 @@ export const CheckoutPage: React.FC = () => {
 
           {/* Step 1: Address */}
           {currentStep === 1 && (
-            <div className="bg-white dark:bg-zinc-900/60 p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 space-y-6 shadow-sm">
-              <div className="flex items-center justify-between pb-3 border-b border-zinc-200 dark:border-zinc-800">
-                <h3 className="font-bold text-sm text-zinc-900 dark:text-zinc-100 uppercase tracking-wider">
+            <div className="bg-white p-6 rounded-2xl border border-indigo-100 space-y-6 shadow-sm">
+              <div className="flex items-center justify-between pb-3 border-b border-indigo-100">
+                <h3 className="font-extrabold text-sm text-zinc-900 uppercase tracking-wider">
                   Step 1: Shipping & Recipient Details
                 </h3>
               </div>
@@ -296,7 +302,7 @@ export const CheckoutPage: React.FC = () => {
               <button
                 type="button"
                 onClick={handleNextStep}
-                className="w-full py-3 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition-colors shadow-md flex items-center justify-center gap-2"
+                className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-violet-600 via-indigo-600 to-pink-500 hover:opacity-95 text-white font-extrabold text-xs transition-all shadow-lg shadow-violet-500/25 flex items-center justify-center gap-2"
               >
                 <span>Continue to Shipping Method</span>
                 <ArrowRight className="w-4 h-4" />
@@ -306,9 +312,9 @@ export const CheckoutPage: React.FC = () => {
 
           {/* Step 2: Shipping Tier */}
           {currentStep === 2 && (
-            <div className="bg-white dark:bg-zinc-900/60 p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 space-y-6 shadow-sm">
-              <div className="flex items-center justify-between pb-3 border-b border-zinc-200 dark:border-zinc-800">
-                <h3 className="font-bold text-sm text-zinc-900 dark:text-zinc-100 uppercase tracking-wider">
+            <div className="bg-white p-6 rounded-2xl border border-indigo-100 space-y-6 shadow-sm">
+              <div className="flex items-center justify-between pb-3 border-b border-indigo-100">
+                <h3 className="font-extrabold text-sm text-zinc-900 uppercase tracking-wider">
                   Step 2: Select Delivery Speed
                 </h3>
               </div>
@@ -319,19 +325,19 @@ export const CheckoutPage: React.FC = () => {
                   onClick={() => setShippingTier('standard')}
                   className={`flex items-center justify-between p-4 rounded-xl border cursor-pointer transition-all ${
                     shippingTier === 'standard'
-                      ? 'border-emerald-500 bg-emerald-50/50 dark:bg-emerald-950/40 text-zinc-900 dark:text-zinc-100 ring-1 ring-emerald-500'
-                      : 'border-zinc-200 dark:border-zinc-700 hover:border-zinc-400'
+                      ? 'border-violet-500 bg-violet-50/70 text-zinc-900 ring-2 ring-violet-500/20 shadow-sm'
+                      : 'border-zinc-200 hover:border-violet-200'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <Truck className="w-5 h-5 text-emerald-500" />
+                    <Truck className="w-5 h-5 text-violet-600" />
                     <div>
                       <h4 className="font-bold text-xs">Standard Freight Courier</h4>
                       <p className="text-[11px] text-zinc-500">Estimated delivery: 3-5 business days</p>
                     </div>
                   </div>
-                  <span className="font-bold text-xs">
-                    {baseShipping === 0 ? <span className="text-emerald-600">FREE</span> : formatCurrency(baseShipping)}
+                  <span className="font-extrabold text-xs">
+                    {baseShipping === 0 ? <span className="text-emerald-600 font-black">FREE</span> : formatCurrency(baseShipping)}
                   </span>
                 </label>
 
@@ -340,8 +346,8 @@ export const CheckoutPage: React.FC = () => {
                   onClick={() => setShippingTier('priority')}
                   className={`flex items-center justify-between p-4 rounded-xl border cursor-pointer transition-all ${
                     shippingTier === 'priority'
-                      ? 'border-emerald-500 bg-emerald-50/50 dark:bg-emerald-950/40 text-zinc-900 dark:text-zinc-100 ring-1 ring-emerald-500'
-                      : 'border-zinc-200 dark:border-zinc-700 hover:border-zinc-400'
+                      ? 'border-amber-500 bg-amber-50/70 text-zinc-900 ring-2 ring-amber-500/20 shadow-sm'
+                      : 'border-zinc-200 hover:border-amber-200'
                   }`}
                 >
                   <div className="flex items-center gap-3">
@@ -351,7 +357,7 @@ export const CheckoutPage: React.FC = () => {
                       <p className="text-[11px] text-zinc-500">Dispatched within 6 hours • Next Day Arrival</p>
                     </div>
                   </div>
-                  <span className="font-bold text-xs text-amber-600 dark:text-amber-400">$25.00</span>
+                  <span className="font-black text-xs text-amber-600">$25.00</span>
                 </label>
               </div>
 
@@ -359,14 +365,14 @@ export const CheckoutPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setCurrentStep(1)}
-                  className="text-xs font-semibold text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100"
+                  className="text-xs font-semibold text-zinc-500 hover:text-violet-600"
                 >
                   ← Back to Address
                 </button>
                 <button
                   type="button"
                   onClick={handleNextStep}
-                  className="py-3 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition-colors shadow-md flex items-center gap-2"
+                  className="py-3 px-6 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:opacity-95 text-white font-bold text-xs transition-all shadow-md shadow-violet-500/20 flex items-center gap-2"
                 >
                   <span>Continue to Payment</span>
                   <ArrowRight className="w-4 h-4" />
@@ -377,27 +383,27 @@ export const CheckoutPage: React.FC = () => {
 
           {/* Step 3: Payment */}
           {currentStep === 3 && (
-            <div className="bg-white dark:bg-zinc-900/60 p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 space-y-6 shadow-sm">
-              <div className="flex items-center justify-between pb-3 border-b border-zinc-200 dark:border-zinc-800">
-                <h3 className="font-bold text-sm text-zinc-900 dark:text-zinc-100 uppercase tracking-wider">
+            <div className="bg-white p-6 rounded-2xl border border-indigo-100 space-y-6 shadow-sm">
+              <div className="flex items-center justify-between pb-3 border-b border-indigo-100">
+                <h3 className="font-extrabold text-sm text-zinc-900 uppercase tracking-wider">
                   Step 3: Secure Payment Selection
                 </h3>
               </div>
 
               <PaymentForm payment={payment} onChange={setPayment} errors={paymentErrors} />
 
-              <div className="flex items-center justify-between pt-4 border-t border-zinc-200 dark:border-zinc-800">
+              <div className="flex items-center justify-between pt-4 border-t border-indigo-100">
                 <button
                   type="button"
                   onClick={() => setCurrentStep(2)}
-                  className="text-xs font-semibold text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100"
+                  className="text-xs font-semibold text-zinc-500 hover:text-violet-600"
                 >
                   ← Back to Shipping
                 </button>
                 <button
                   type="button"
                   onClick={handlePlaceOrder}
-                  className="py-3.5 px-8 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs transition-colors shadow-xl shadow-emerald-600/25 flex items-center gap-2 group"
+                  className="py-3.5 px-8 rounded-xl bg-gradient-to-r from-violet-600 via-indigo-600 to-pink-500 hover:opacity-95 text-white font-extrabold text-xs transition-all shadow-xl shadow-violet-500/30 flex items-center gap-2 group"
                 >
                   <Lock className="w-4 h-4" />
                   <span>Authorize & Place Order</span>

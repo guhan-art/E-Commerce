@@ -55,15 +55,15 @@ export const WishlistPage: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-zinc-200 dark:border-zinc-800">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-indigo-100">
         <div>
-          <span className="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
+          <span className="text-xs font-black uppercase tracking-widest text-violet-600">
             Saved Curations
           </span>
-          <h1 className="text-3xl font-extrabold text-zinc-900 dark:text-zinc-100 font-display mt-1">
+          <h1 className="text-3xl font-extrabold text-zinc-900 font-display mt-1">
             Studio Wishlist ({items.length})
           </h1>
-          <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+          <p className="text-xs text-zinc-500 mt-1">
             Keep track of coveted editions, compare finishes, or move everything straight into your bag.
           </p>
         </div>
@@ -71,7 +71,7 @@ export const WishlistPage: React.FC = () => {
         <div className="flex items-center gap-3">
           <button
             onClick={clearWishlist}
-            className="px-3.5 py-2 rounded-xl border border-zinc-300 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:text-rose-500 text-xs font-semibold flex items-center gap-1.5 transition-colors"
+            className="px-3.5 py-2 rounded-xl border border-pink-200 text-zinc-600 hover:text-pink-600 hover:bg-pink-50 text-xs font-semibold flex items-center gap-1.5 transition-colors"
           >
             <Trash2 className="w-3.5 h-3.5" />
             <span>Clear All</span>
@@ -79,7 +79,7 @@ export const WishlistPage: React.FC = () => {
 
           <button
             onClick={handleMoveAllToCart}
-            className="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-colors shadow-md flex items-center gap-2"
+            className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 via-indigo-600 to-pink-500 hover:opacity-95 text-white text-xs font-black transition-all shadow-md shadow-violet-500/25 flex items-center gap-2"
           >
             <ShoppingBag className="w-4 h-4" />
             <span>Move All to Bag</span>

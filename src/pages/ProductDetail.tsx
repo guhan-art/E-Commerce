@@ -166,7 +166,7 @@ export const ProductDetail: React.FC = () => {
         <div className="space-y-6">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-xs font-bold tracking-widest uppercase text-emerald-600 dark:text-emerald-400">
+              <span className="text-xs font-black tracking-widest uppercase text-violet-600 bg-violet-50 px-2.5 py-1 rounded-md border border-violet-100">
                 {product.category}
               </span>
               {product.badge && (
@@ -174,23 +174,23 @@ export const ProductDetail: React.FC = () => {
               )}
             </div>
 
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-zinc-900 dark:text-zinc-50 font-display">
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-zinc-900 font-display">
               {product.name}
             </h1>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">{product.tagline}</p>
+            <p className="text-sm text-zinc-600 mt-1">{product.tagline}</p>
           </div>
 
           {/* Rating & Stock row */}
-          <div className="flex items-center gap-4 py-2 border-y border-zinc-200/80 dark:border-zinc-800/80 text-xs">
+          <div className="flex items-center gap-4 py-2 border-y border-indigo-100 text-xs">
             <StarRating rating={product.rating} size="sm" showScore reviewCount={product.reviewCount} />
-            <span className="text-zinc-300 dark:text-zinc-700">•</span>
+            <span className="text-zinc-300">•</span>
             <div className="flex items-center gap-1.5">
               <span
                 className={`w-2 h-2 rounded-full ${
-                  product.inStock ? 'bg-emerald-500' : 'bg-rose-500'
+                  product.inStock ? 'bg-emerald-500 animate-pulse' : 'bg-rose-500'
                 }`}
               />
-              <span className="font-semibold text-zinc-700 dark:text-zinc-300">
+              <span className="font-semibold text-zinc-700">
                 {product.inStock
                   ? `In Stock (${product.stockCount} units available)`
                   : 'Out of Stock'}
@@ -200,7 +200,7 @@ export const ProductDetail: React.FC = () => {
 
           {/* Pricing */}
           <div className="flex items-baseline gap-3">
-            <span className="text-3xl font-black text-zinc-900 dark:text-zinc-100 font-display">
+            <span className="text-3xl font-black bg-gradient-to-r from-violet-600 via-indigo-600 to-pink-500 bg-clip-text text-transparent font-display">
               {formatCurrency(unitPrice)}
             </span>
             {product.originalPrice && (
@@ -209,22 +209,22 @@ export const ProductDetail: React.FC = () => {
               </span>
             )}
             {selectedVariant?.priceModifier ? (
-              <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+              <span className="text-xs font-semibold text-violet-600">
                 (+{formatCurrency(selectedVariant.priceModifier)} for selected finish)
               </span>
             ) : null}
           </div>
 
-          <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
+          <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed">
             {product.description}
           </p>
 
           {/* Variant: Colors */}
           {product.variants && product.variants.length > 0 && (
             <div className="space-y-2">
-              <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700 dark:text-zinc-300">
+              <label className="block text-xs font-extrabold uppercase tracking-wider text-zinc-700">
                 Finish:{' '}
-                <span className="font-normal text-zinc-500 dark:text-zinc-400">
+                <span className="font-normal text-violet-600">
                   {selectedVariant?.name}
                 </span>
               </label>
@@ -235,13 +235,13 @@ export const ProductDetail: React.FC = () => {
                     onClick={() => setSelectedVariant(v)}
                     className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-medium border transition-all ${
                       selectedVariant?.id === v.id
-                        ? 'border-emerald-500 bg-emerald-50/50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 ring-2 ring-emerald-500/20 shadow-sm'
-                        : 'border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 hover:border-zinc-400'
+                        ? 'border-violet-500 bg-violet-50/80 text-violet-900 ring-2 ring-violet-500/30 shadow-sm font-bold'
+                        : 'border-zinc-200 text-zinc-700 hover:border-violet-300'
                     }`}
                   >
                     {v.colorHex && (
                       <span
-                        className="w-3.5 h-3.5 rounded-full border border-zinc-400/40 shrink-0"
+                        className="w-3.5 h-3.5 rounded-full border border-black/10 shrink-0"
                         style={{ backgroundColor: v.colorHex }}
                       />
                     )}
@@ -255,7 +255,7 @@ export const ProductDetail: React.FC = () => {
           {/* Variant: Size / Spec */}
           {product.sizeOptions && product.sizeOptions.length > 0 && (
             <div className="space-y-2">
-              <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700 dark:text-zinc-300">
+              <label className="block text-xs font-extrabold uppercase tracking-wider text-zinc-700">
                 Configuration
               </label>
               <div className="flex flex-wrap gap-2.5">
@@ -265,8 +265,8 @@ export const ProductDetail: React.FC = () => {
                     onClick={() => setSelectedSize(opt)}
                     className={`px-3.5 py-2 rounded-xl text-xs font-medium border transition-all ${
                       selectedSize?.id === opt.id
-                        ? 'border-emerald-500 bg-emerald-500 text-white font-bold shadow-sm'
-                        : 'border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 hover:border-zinc-400'
+                        ? 'border-transparent bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-bold shadow-sm'
+                        : 'border-zinc-200 text-zinc-700 hover:border-violet-300'
                     }`}
                   >
                     {opt.label}
@@ -280,20 +280,20 @@ export const ProductDetail: React.FC = () => {
           <div className="pt-4 space-y-3">
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               {/* Quantity selector */}
-              <div className="flex items-center justify-between border border-zinc-300 dark:border-zinc-700 rounded-xl overflow-hidden bg-white dark:bg-zinc-800 px-1 py-1">
+              <div className="flex items-center justify-between border border-violet-200 rounded-xl overflow-hidden bg-white px-1 py-1 shadow-sm">
                 <button
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="p-2 text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                  className="p-2 text-zinc-500 hover:text-violet-600 transition-colors"
                   aria-label="Decrease quantity"
                 >
                   <Minus className="w-4 h-4" />
                 </button>
-                <span className="px-4 text-xs font-bold text-zinc-900 dark:text-zinc-100">
+                <span className="px-4 text-xs font-extrabold text-zinc-900">
                   {quantity}
                 </span>
                 <button
                   onClick={() => setQuantity(Math.min(product.stockCount, quantity + 1))}
-                  className="p-2 text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                  className="p-2 text-zinc-500 hover:text-violet-600 transition-colors"
                   aria-label="Increase quantity"
                 >
                   <Plus className="w-4 h-4" />
@@ -303,9 +303,9 @@ export const ProductDetail: React.FC = () => {
               {/* Add to Cart Button */}
               <button
                 onClick={handleAddToCart}
-                className="flex-1 py-3 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all shadow-lg shadow-emerald-600/20 flex items-center justify-center gap-2 group"
+                className="flex-1 py-3 px-6 rounded-xl bg-gradient-to-r from-violet-600 via-indigo-600 to-pink-500 hover:opacity-95 text-white text-xs font-extrabold transition-all shadow-lg shadow-violet-500/25 flex items-center justify-center gap-2 group"
               >
-                {addedAnim ? <Check className="w-4 h-4 text-white" /> : <ShoppingBag className="w-4 h-4" />}
+                {addedAnim ? <Check className="w-4 h-4 text-white stroke-[3]" /> : <ShoppingBag className="w-4 h-4" />}
                 <span>{addedAnim ? 'Added to Bag!' : `Add to Bag • ${formatCurrency(unitPrice * quantity)}`}</span>
               </button>
 
@@ -315,21 +315,21 @@ export const ProductDetail: React.FC = () => {
                   onClick={handleToggleWishlist}
                   className={`p-3 rounded-xl border transition-colors ${
                     isWishlisted
-                      ? 'border-rose-500 bg-rose-50 text-rose-600 dark:bg-rose-950/40 dark:text-rose-400'
-                      : 'border-zinc-200 dark:border-zinc-700 text-zinc-400 hover:text-rose-500'
+                      ? 'border-pink-500 bg-pink-50 text-pink-600'
+                      : 'border-zinc-200 text-zinc-400 hover:text-pink-500 hover:border-pink-200'
                   }`}
                   title="Wishlist"
                   aria-label="Save to Wishlist"
                 >
-                  <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-rose-500' : ''}`} />
+                  <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-pink-500' : ''}`} />
                 </button>
 
                 <button
                   onClick={handleToggleCompare}
                   className={`p-3 rounded-xl border transition-colors ${
                     isCompared
-                      ? 'border-emerald-500 bg-emerald-50 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400'
-                      : 'border-zinc-200 dark:border-zinc-700 text-zinc-400 hover:text-emerald-500'
+                      ? 'border-violet-500 bg-violet-50 text-violet-600'
+                      : 'border-zinc-200 text-zinc-400 hover:text-violet-500 hover:border-violet-200'
                   }`}
                   title="Compare"
                   aria-label="Compare"
@@ -342,25 +342,25 @@ export const ProductDetail: React.FC = () => {
             {/* Buy Now One-Click */}
             <button
               onClick={handleBuyNow}
-              className="w-full py-3 px-6 rounded-xl bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-xs font-bold hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors flex items-center justify-center gap-2 shadow-md"
+              className="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-amber-500 via-orange-500 to-pink-500 text-white text-xs font-black hover:opacity-95 transition-all flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20"
             >
-              <Zap className="w-4 h-4 text-amber-400 fill-amber-400" />
+              <Zap className="w-4 h-4 fill-white" />
               <span>Instant Buy with Express Checkout</span>
             </button>
           </div>
 
           {/* Quick trust metrics */}
-          <div className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200/80 dark:border-zinc-800/80 grid grid-cols-1 sm:grid-cols-3 gap-3 text-[11px] text-zinc-600 dark:text-zinc-400">
-            <div className="flex items-center gap-2">
-              <Truck className="w-4 h-4 text-emerald-500 shrink-0" />
+          <div className="p-4 rounded-2xl bg-gradient-to-r from-violet-50/70 via-pink-50/70 to-amber-50/70 border border-violet-100 grid grid-cols-1 sm:grid-cols-3 gap-3 text-[11px] text-zinc-700">
+            <div className="flex items-center gap-2 font-medium">
+              <Truck className="w-4 h-4 text-violet-600 shrink-0" />
               <span>Free Delivery $150+</span>
             </div>
-            <div className="flex items-center gap-2">
-              <RotateCcw className="w-4 h-4 text-emerald-500 shrink-0" />
+            <div className="flex items-center gap-2 font-medium">
+              <RotateCcw className="w-4 h-4 text-pink-600 shrink-0" />
               <span>30-Day Risk-Free</span>
             </div>
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-emerald-500 shrink-0" />
+            <div className="flex items-center gap-2 font-medium">
+              <ShieldCheck className="w-4 h-4 text-amber-600 shrink-0" />
               <span>2-Year Warranty</span>
             </div>
           </div>
@@ -368,34 +368,34 @@ export const ProductDetail: React.FC = () => {
       </div>
 
       {/* Tabbed Specs & Highlights */}
-      <div className="pt-10 border-t border-zinc-200 dark:border-zinc-800">
-        <div className="flex border-b border-zinc-200 dark:border-zinc-800 gap-6">
+      <div className="pt-10 border-t border-indigo-100">
+        <div className="flex border-b border-indigo-100 gap-6">
           <button
             onClick={() => setActiveTab('features')}
-            className={`pb-3 text-xs font-bold uppercase tracking-wider transition-colors border-b-2 -mb-px ${
+            className={`pb-3 text-xs font-extrabold uppercase tracking-wider transition-colors border-b-2 -mb-px ${
               activeTab === 'features'
-                ? 'border-emerald-500 text-emerald-600 dark:text-emerald-400'
-                : 'border-transparent text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200'
+                ? 'border-violet-600 text-violet-600'
+                : 'border-transparent text-zinc-500 hover:text-zinc-900'
             }`}
           >
             Acoustic & Craft Highlights
           </button>
           <button
             onClick={() => setActiveTab('specs')}
-            className={`pb-3 text-xs font-bold uppercase tracking-wider transition-colors border-b-2 -mb-px ${
+            className={`pb-3 text-xs font-extrabold uppercase tracking-wider transition-colors border-b-2 -mb-px ${
               activeTab === 'specs'
-                ? 'border-emerald-500 text-emerald-600 dark:text-emerald-400'
-                : 'border-transparent text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200'
+                ? 'border-violet-600 text-violet-600'
+                : 'border-transparent text-zinc-500 hover:text-zinc-900'
             }`}
           >
             Technical Specifications
           </button>
           <button
             onClick={() => setActiveTab('shipping')}
-            className={`pb-3 text-xs font-bold uppercase tracking-wider transition-colors border-b-2 -mb-px ${
+            className={`pb-3 text-xs font-extrabold uppercase tracking-wider transition-colors border-b-2 -mb-px ${
               activeTab === 'shipping'
-                ? 'border-emerald-500 text-emerald-600 dark:text-emerald-400'
-                : 'border-transparent text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200'
+                ? 'border-violet-600 text-violet-600'
+                : 'border-transparent text-zinc-500 hover:text-zinc-900'
             }`}
           >
             Freight & Care Warranty
@@ -408,12 +408,12 @@ export const ProductDetail: React.FC = () => {
               {product.features.map((feat, idx) => (
                 <li
                   key={idx}
-                  className="flex items-start gap-3 p-4 rounded-xl bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-100 dark:border-zinc-800/80"
+                  className="flex items-start gap-3 p-4 rounded-xl bg-white border border-indigo-50 shadow-sm"
                 >
-                  <div className="w-5 h-5 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center shrink-0 mt-0.5">
-                    <Check className="w-3.5 h-3.5" />
+                  <div className="w-5 h-5 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center shrink-0 mt-0.5 font-bold">
+                    <Check className="w-3.5 h-3.5 stroke-[3]" />
                   </div>
-                  <span className="text-zinc-700 dark:text-zinc-300 font-medium leading-relaxed">
+                  <span className="text-zinc-700 font-medium leading-relaxed">
                     {feat}
                   </span>
                 </li>
@@ -422,15 +422,15 @@ export const ProductDetail: React.FC = () => {
           )}
 
           {activeTab === 'specs' && (
-            <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden text-xs">
+            <div className="rounded-2xl border border-indigo-100 overflow-hidden text-xs bg-white shadow-sm">
               <table className="w-full text-left">
-                <tbody className="divide-y divide-zinc-200 dark:divide-zinc-800">
+                <tbody className="divide-y divide-indigo-50">
                   {Object.entries(product.specs).map(([label, val]) => (
-                    <tr key={label} className="hover:bg-zinc-50 dark:hover:bg-zinc-900/40">
-                      <td className="py-3 px-4 font-semibold text-zinc-500 dark:text-zinc-400 w-1/3">
+                    <tr key={label} className="hover:bg-violet-50/40 transition-colors">
+                      <td className="py-3 px-4 font-bold text-zinc-500 w-1/3">
                         {label}
                       </td>
-                      <td className="py-3 px-4 font-medium text-zinc-900 dark:text-zinc-100">{val}</td>
+                      <td className="py-3 px-4 font-medium text-zinc-900">{val}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -439,8 +439,8 @@ export const ProductDetail: React.FC = () => {
           )}
 
           {activeTab === 'shipping' && (
-            <div className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 space-y-4 text-xs text-zinc-600 dark:text-zinc-300">
-              <h4 className="font-bold text-sm text-zinc-900 dark:text-zinc-100">
+            <div className="p-6 rounded-2xl bg-gradient-to-br from-violet-50/50 via-pink-50/50 to-amber-50/50 border border-violet-100 space-y-4 text-xs text-zinc-700 shadow-sm">
+              <h4 className="font-extrabold text-sm text-zinc-900">
                 Dispatch & Return Guarantees
               </h4>
               <p>

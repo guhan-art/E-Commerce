@@ -10,35 +10,23 @@ interface ThemeState {
 export const useThemeStore = create<ThemeState>()(
   persist(
     (set, get) => ({
-      theme: 'dark', // default to sleek modern dark mode
+      theme: 'light', // Default to bright colorful aesthetic as requested
 
       toggleTheme: () => {
-        const next = get().theme === 'dark' ? 'light' : 'dark';
-        if (next === 'dark') {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-        }
+        const next = get().theme === 'dark' ? 'light' : 'light'; // Keep bright and radiant
+        document.documentElement.classList.remove('dark');
         set({ theme: next });
       },
 
       setTheme: (theme) => {
-        if (theme === 'dark') {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-        }
+        document.documentElement.classList.remove('dark');
         set({ theme });
       },
     }),
     {
-      name: 'aura-theme-preference',
-      onRehydrateStorage: () => (state) => {
-        if (state?.theme === 'dark') {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-        }
+      name: 'chromalux-theme-preference',
+      onRehydrateStorage: () => () => {
+        document.documentElement.classList.remove('dark');
       },
     }
   )

@@ -64,28 +64,28 @@ export const OrdersPage: React.FC = () => {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-zinc-200 dark:border-zinc-800">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-indigo-100">
         <div>
-          <span className="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
+          <span className="text-xs font-black uppercase tracking-widest text-violet-600">
             Account Management
           </span>
-          <h1 className="text-3xl font-extrabold text-zinc-900 dark:text-zinc-100 font-display mt-1">
+          <h1 className="text-3xl font-extrabold text-zinc-900 font-display mt-1">
             Order History & Dispatch Status
           </h1>
-          <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
-            Review past acquisitions, track current studio shipments, and download tax invoices.
+          <p className="text-xs text-zinc-500 mt-1">
+            Review past acquisitions, track current studio shipments, and inspect live REST telemetry.
           </p>
         </div>
 
         {/* Search Input */}
         <div className="relative w-full sm:w-64">
-          <Search className="w-4 h-4 text-zinc-400 absolute left-3 top-2.5" />
+          <Search className="w-4 h-4 text-violet-400 absolute left-3 top-2.5" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search by Order ID or item..."
-            className="w-full pl-9 pr-3 py-2 text-xs rounded-xl border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+            className="w-full pl-9 pr-3 py-2 text-xs rounded-xl border border-violet-200 bg-white text-zinc-900 focus:outline-none focus:ring-2 focus:ring-violet-500/50 shadow-sm"
           />
         </div>
       </div>

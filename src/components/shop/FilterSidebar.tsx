@@ -40,18 +40,19 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
   const content = (
     <div className="space-y-6">
       {/* Header with count and reset */}
-      <div className="flex items-center justify-between pb-4 border-b border-zinc-200 dark:border-zinc-800">
+      <div className="flex items-center justify-between pb-4 border-b border-indigo-100">
         <div>
-          <h3 className="font-bold text-sm text-zinc-900 dark:text-zinc-100 uppercase tracking-wider">
+          <h3 className="font-extrabold text-sm text-zinc-900 uppercase tracking-wider flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-gradient-to-r from-violet-600 to-pink-500 animate-pulse" />
             Filters
           </h3>
-          <span className="text-xs text-zinc-500 dark:text-zinc-400">
+          <span className="text-xs text-violet-600/80 font-medium">
             {totalProductsCount} {totalProductsCount === 1 ? 'item found' : 'items found'}
           </span>
         </div>
         <button
           onClick={onReset}
-          className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 flex items-center gap-1 transition-colors"
+          className="text-xs font-bold text-violet-600 hover:text-pink-600 flex items-center gap-1 transition-colors px-2.5 py-1 rounded-lg bg-violet-50 hover:bg-pink-50"
           title="Reset all filters"
         >
           <RotateCcw className="w-3.5 h-3.5" />
@@ -61,22 +62,22 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
 
       {/* Search Input */}
       <div>
-        <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700 dark:text-zinc-300 mb-2">
+        <label className="block text-xs font-extrabold uppercase tracking-wider text-zinc-700 mb-2">
           Search
         </label>
         <div className="relative">
-          <Search className="w-4 h-4 text-zinc-400 absolute left-3 top-2.5" />
+          <Search className="w-4 h-4 text-violet-400 absolute left-3 top-2.5" />
           <input
             type="text"
             value={filters.searchQuery}
             onChange={(e) => onChange({ ...filters, searchQuery: e.target.value })}
-            placeholder="Search headphones, desk..."
-            className="w-full pl-9 pr-8 py-2 text-xs rounded-xl border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800/80 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+            placeholder="Search audio, keyboard, desk..."
+            className="w-full pl-9 pr-8 py-2 text-xs rounded-xl border border-violet-200 bg-white text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-violet-500/50 shadow-sm"
           />
           {filters.searchQuery && (
             <button
               onClick={() => onChange({ ...filters, searchQuery: '' })}
-              className="absolute right-2.5 top-2.5 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200"
+              className="absolute right-2.5 top-2.5 text-zinc-400 hover:text-pink-600"
             >
               <X className="w-3.5 h-3.5" />
             </button>
@@ -86,7 +87,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
 
       {/* Categories */}
       <div>
-        <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700 dark:text-zinc-300 mb-2.5">
+        <label className="block text-xs font-extrabold uppercase tracking-wider text-zinc-700 mb-2.5">
           Category
         </label>
         <div className="space-y-1">
@@ -96,14 +97,14 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
               <button
                 key={cat}
                 onClick={() => handleCategoryChange(cat)}
-                className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium transition-colors text-left ${
+                className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold transition-all text-left ${
                   isSelected
-                    ? 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400 font-bold'
-                    : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800/60'
+                    ? 'bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-md shadow-violet-500/25'
+                    : 'text-zinc-700 hover:bg-violet-50/80 hover:text-violet-700'
                 }`}
               >
                 <span>{cat}</span>
-                {isSelected && <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />}
+                {isSelected && <Check className="w-3.5 h-3.5 text-white stroke-[3]" />}
               </button>
             );
           })}
@@ -113,10 +114,10 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
       {/* Price Range Slider */}
       <div>
         <div className="flex items-center justify-between mb-2">
-          <label className="text-xs font-bold uppercase tracking-wider text-zinc-700 dark:text-zinc-300">
+          <label className="text-xs font-extrabold uppercase tracking-wider text-zinc-700">
             Max Price
           </label>
-          <span className="text-xs font-extrabold text-zinc-900 dark:text-zinc-100">
+          <span className="text-xs font-black text-violet-700 bg-violet-100 px-2 py-0.5 rounded-md">
             {formatCurrency(filters.maxPrice)}
           </span>
         </div>
@@ -127,9 +128,9 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
           step="25"
           value={filters.maxPrice}
           onChange={handlePriceChange}
-          className="w-full h-1.5 bg-zinc-200 dark:bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-emerald-500"
+          className="w-full h-2 bg-gradient-to-r from-violet-200 via-pink-200 to-amber-200 rounded-lg appearance-none cursor-pointer accent-violet-600"
         />
-        <div className="flex justify-between text-[10px] text-zinc-400 mt-1 font-semibold">
+        <div className="flex justify-between text-[10px] text-zinc-500 mt-1 font-semibold">
           <span>$50</span>
           <span>$500</span>
           <span>$1,000+</span>
@@ -139,13 +140,13 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
       {/* In-Stock Only Toggle */}
       <div className="pt-2">
         <label className="flex items-center justify-between cursor-pointer group">
-          <span className="text-xs font-bold uppercase tracking-wider text-zinc-700 dark:text-zinc-300 group-hover:text-zinc-900 dark:group-hover:text-zinc-100">
+          <span className="text-xs font-extrabold uppercase tracking-wider text-zinc-700 group-hover:text-violet-600 transition-colors">
             In-Stock Only
           </span>
           <div
             onClick={handleInStockToggle}
             className={`w-10 h-5 flex items-center rounded-full p-0.5 transition-colors ${
-              filters.inStockOnly ? 'bg-emerald-500' : 'bg-zinc-300 dark:bg-zinc-700'
+              filters.inStockOnly ? 'bg-gradient-to-r from-emerald-500 to-teal-500' : 'bg-zinc-300'
             }`}
           >
             <div
@@ -159,7 +160,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
 
       {/* Rating Filter */}
       <div>
-        <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700 dark:text-zinc-300 mb-2">
+        <label className="block text-xs font-extrabold uppercase tracking-wider text-zinc-700 mb-2">
           Minimum Rating
         </label>
         <div className="space-y-1.5">
@@ -167,14 +168,14 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
             <button
               key={stars}
               onClick={() => handleRatingChange(stars)}
-              className={`w-full flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs border transition-colors ${
+              className={`w-full flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs border transition-all ${
                 filters.minRating === stars
-                  ? 'border-amber-400 bg-amber-50/60 dark:bg-amber-950/30 text-zinc-900 dark:text-zinc-100 font-semibold'
-                  : 'border-transparent text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800'
+                  ? 'border-amber-400 bg-amber-50 text-amber-900 font-bold shadow-sm'
+                  : 'border-zinc-200 text-zinc-600 hover:bg-violet-50/60 hover:border-violet-200'
               }`}
             >
-              <div className="flex items-center text-amber-400">
-                <Star className="w-3.5 h-3.5 fill-amber-400" />
+              <div className="flex items-center text-amber-500">
+                <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-500" />
               </div>
               <span>{stars}★ & above</span>
             </button>
@@ -208,7 +209,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
 
             <button
               onClick={onCloseMobile}
-              className="mt-6 w-full py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-xs shadow-lg shadow-emerald-600/20"
+              className="mt-6 w-full py-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-bold text-xs shadow-lg shadow-violet-500/25"
             >
               Apply Filters
             </button>
@@ -219,7 +220,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
   }
 
   return (
-    <div className="bg-white dark:bg-zinc-900/60 p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 sticky top-24">
+    <div className="bg-white/95 backdrop-blur-md p-5 rounded-2xl border border-indigo-100 shadow-sm sticky top-24">
       {content}
     </div>
   );

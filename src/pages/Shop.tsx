@@ -101,16 +101,16 @@ export const Shop: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
       {/* Page Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-zinc-200 dark:border-zinc-800">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-slate-200">
         <div>
-          <span className="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
-            AURA Catalog
+          <span className="text-xs font-black uppercase tracking-widest text-violet-700 bg-violet-100 px-3 py-1 rounded-full border border-violet-200 inline-block mb-1">
+            CHROMALUX Spectrum Catalog
           </span>
-          <h1 className="text-3xl sm:text-4xl font-black text-zinc-900 dark:text-zinc-100 font-display mt-1">
-            {filters.category === 'All' ? 'All Studio Hardware' : `${filters.category} Collection`}
+          <h1 className="text-3xl sm:text-4xl font-black font-display mt-1 bg-gradient-to-r from-violet-700 via-pink-600 to-amber-500 bg-clip-text text-transparent">
+            {filters.category === 'All' ? 'All Studio Colorways' : `${filters.category} Collection`}
           </h1>
-          <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
-            Machined from solid metals, precision calibrated transducers, and ergonomic accessories.
+          <p className="text-xs text-slate-500 mt-1 font-medium">
+            Full-Stack REST Architecture • Machined alloys, planar transducers, and chromatic accessories.
           </p>
         </div>
 
@@ -119,19 +119,19 @@ export const Shop: React.FC = () => {
           {/* Mobile Filter Button */}
           <button
             onClick={() => setMobileFilterOpen(true)}
-            className="lg:hidden px-3.5 py-2 rounded-xl border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 text-xs font-bold flex items-center gap-2"
+            className="lg:hidden px-3.5 py-2 rounded-xl border border-slate-300 bg-white text-slate-800 text-xs font-bold flex items-center gap-2 shadow-xs"
           >
-            <SlidersHorizontal className="w-3.5 h-3.5 text-emerald-500" />
+            <SlidersHorizontal className="w-3.5 h-3.5 text-violet-600" />
             <span>Filters</span>
           </button>
 
           {/* Sort Select */}
           <div className="relative flex items-center">
-            <ArrowUpDown className="w-3.5 h-3.5 text-zinc-400 absolute left-3 pointer-events-none" />
+            <ArrowUpDown className="w-3.5 h-3.5 text-slate-400 absolute left-3 pointer-events-none" />
             <select
               value={filters.sortBy}
               onChange={(e) => setFilters({ ...filters, sortBy: e.target.value as any })}
-              className="pl-8 pr-8 py-2 text-xs font-semibold rounded-xl border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 appearance-none cursor-pointer"
+              className="pl-8 pr-8 py-2 text-xs font-bold rounded-xl border border-slate-300 bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-violet-500/50 appearance-none cursor-pointer shadow-xs"
             >
               <option value="featured">Sort: Featured Picks</option>
               <option value="price-asc">Price: Low to High</option>

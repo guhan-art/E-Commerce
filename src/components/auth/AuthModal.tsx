@@ -165,7 +165,7 @@ export const AuthModal: React.FC = () => {
 
             <button
               type="submit"
-              className="w-full py-2.5 px-4 rounded-xl bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 font-semibold text-sm transition-colors shadow-md"
+              className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-violet-600 via-indigo-600 to-pink-500 hover:opacity-95 text-white font-extrabold text-sm transition-all shadow-md shadow-violet-500/25"
             >
               {isSignUp ? 'Create Account' : 'Sign In'}
             </button>
@@ -173,27 +173,27 @@ export const AuthModal: React.FC = () => {
 
           <div className="relative my-4">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-zinc-200 dark:border-zinc-800" />
+              <div className="w-full border-t border-indigo-100" />
             </div>
             <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-white dark:bg-zinc-900 px-2 text-zinc-400">or instant demo</span>
+              <span className="bg-white px-2 text-violet-400 font-bold">or instant demo</span>
             </div>
           </div>
 
           <button
             onClick={handleDemoSignIn}
-            className="w-full py-2.5 px-4 rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-500/20 font-semibold text-sm transition-colors flex items-center justify-center gap-2"
+            className="w-full py-2.5 px-4 rounded-xl border border-violet-200 bg-violet-50 text-violet-700 hover:bg-violet-100 font-bold text-sm transition-colors flex items-center justify-center gap-2"
           >
-            <Sparkles className="w-4 h-4" />
+            <Sparkles className="w-4 h-4 text-violet-600" />
             Sign in as Demo User (Guhan Raj)
           </button>
 
-          <p className="text-center text-xs text-zinc-500 dark:text-zinc-400 pt-2">
+          <p className="text-center text-xs text-zinc-500 pt-2">
             {isSignUp ? 'Already have an account?' : "Don't have an account yet?"}{' '}
             <button
               type="button"
               onClick={() => setIsSignUp(!isSignUp)}
-              className="font-semibold text-emerald-600 dark:text-emerald-400 hover:underline"
+              className="font-bold text-violet-600 hover:underline"
             >
               {isSignUp ? 'Sign In' : 'Sign Up'}
             </button>
