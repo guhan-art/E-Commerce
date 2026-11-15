@@ -177,7 +177,7 @@ export const Home: React.FC = () => {
           <div className="max-w-2xl space-y-6 relative z-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-amber-300 text-xs font-black border border-white/20">
               <Award className="w-4 h-4" />
-              <span>Full-Stack Engineering & Material Craft</span>
+              <span>Engineering & Material Craft</span>
             </div>
 
             <h2 className="text-3xl sm:text-5xl font-black font-display leading-tight">

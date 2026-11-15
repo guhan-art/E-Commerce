@@ -115,7 +115,7 @@ export const ApiInspector: React.FC = () => {
               </div>
               <div>
                 <h3 className="font-black text-lg text-slate-900 font-display flex items-center gap-2">
-                  <span>CHROMALUX Full-Stack REST API Gateway</span>
+                  <span>CHROMALUX REST API Gateway</span>
                   <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold border border-emerald-300">
                     ONLINE
                   </span>
@@ -174,7 +174,7 @@ export const ApiInspector: React.FC = () => {
               }`}
             >
               <Layers className="w-3.5 h-3.5" />
-              <span>Full-Stack Architecture</span>
+              <span>System Architecture</span>
             </button>
           </div>
 
@@ -359,7 +359,7 @@ export const ApiInspector: React.FC = () => {
             </div>
           )}
 
-          {/* TAB 3: FULL STACK ARCHITECTURE */}
+          {/* TAB 3: SYSTEM ARCHITECTURE */}
           {activeTab === 'architecture' && (
             <div className="space-y-4 text-xs">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

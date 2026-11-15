@@ -110,7 +110,7 @@ export const Shop: React.FC = () => {
             {filters.category === 'All' ? 'All Studio Colorways' : `${filters.category} Collection`}
           </h1>
           <p className="text-xs text-slate-500 mt-1 font-medium">
-            Full-Stack REST Architecture • Machined alloys, planar transducers, and chromatic accessories.
+            REST Architecture • Machined alloys, planar transducers, and chromatic accessories.
           </p>
         </div>
 
